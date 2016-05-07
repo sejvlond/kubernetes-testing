@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: tarsier
+spec:
+    selector:
+        app: tarsier
+    ports:
+      - port: 8888
+        name: public
+      - port: 9999
+        name: service

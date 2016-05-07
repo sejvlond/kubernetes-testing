@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+    name: consul
+spec:
+    replicas: 1
+    selector:
+        app: consul
+    template:
+        metadata:
+            name: consul
+            labels:
+                app: consul
+        spec:
+            containers:
+            - name: consul
+              image: docker.io/library/consul
+              ports:
+              - containerPort: 8500
+              args:
+              - "agent"
+              - "-dev"
+              - "-client=0.0.0.0"

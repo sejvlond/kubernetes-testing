@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: consul
+spec:
+    clusterIP: 10.0.0.120
+    selector:
+        app: consul
+    ports:
+        - port: 8500

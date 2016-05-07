@@ -1,0 +1,29 @@
+# Local KafkaFeeder configuration file
+topics:
+    # Example for Datalog group definition
+    tarsier:
+        # (mandatory) destination topic name in Kafka
+        topic: tarsier-dbg
+
+        # (mandatory) type of log
+        type: datalog
+
+        # (mandatory) name of Kafka broker group. This name must be present in
+        # "kafka_brokers" section of global.yaml
+        broker: kafka_dev
+
+        # (optional) retention length, older files which were read will be
+        # deleted. Can have an optional postfix. If number has no postfix,
+        # then it is assumed as time in hours.
+        # Supported postfixes:
+        # m - minutes
+        # h - hours
+        # d - days
+        retention: 24h
+
+        # (optional) acknowledge level for sending to Kafka. Allowed values:
+        # -1: ack after disk write (most safe, slowest)
+        # 1: ack after memory write
+        # 0: ack disabled (least safe, fastest)
+        # Default: -1
+        ack: -1

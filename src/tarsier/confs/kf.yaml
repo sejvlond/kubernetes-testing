@@ -1,0 +1,24 @@
+logging:
+    component: kafkafeeder
+    dir: /www/kafkafeeder-beta/self-logs/
+    interval: 3600
+checkpoint_dir: /www/kafkafeeder-beta/run/cache/checkpoint/
+journal_dir: /www/kafkafeeder-beta/run/cache/logstreamer/
+log_dir: /www/kafkafeeder-beta/logs/
+hekad:
+    main_conf_path: /www/kafkafeeder-beta/heka/conf/hekad.toml
+    bin_path: /usr/bin/hekad
+    conf_dir: /www/kafkafeeder-beta/run/conf/
+    kafka_brokers:
+        kafka_dev:
+            - kafka1.dev:9092
+            - kafka2.dev:9092
+            - kafka3.dev:9092
+        kafka:
+            - a6kaf-f1:9092
+            - a6kaf-f2:9092
+            - a6kaf-f3:9092
+watcher:
+    interval: 15
+cleaner:
+    interval: 86400
