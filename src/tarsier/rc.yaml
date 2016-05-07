@@ -15,7 +15,7 @@ spec:
             containers:
 
               - name: tarsier
-                image: docker.dev/fulltext-frontend/tarsier
+                image: docker.io/sejvlond/tarsier
                 #imagePullPolicy: Always
                 ports:
                   - containerPort: 8888
@@ -33,21 +33,21 @@ spec:
                     readOnly: true
 
               - name: kafkafeeder
-                image: docker.dev/fulltext-frontend/kafkafeeder-beta
+                image: docker.io/sejvlond/kafkafeeder
                 #imagePullPolicy: Always
                 ports:
                   - containerPort: 8796
                 volumeMounts:
                   - name: kf-logs
-                    mountPath: /www/kafkafeeder-beta/logs/
+                    mountPath: /www/kafkafeeder/logs/
                   - name: kf-self-logs
-                    mountPath: /www/kafkafeeder-beta/self-logs/
+                    mountPath: /www/kafkafeeder/self-logs/
                   - name: kf-conf
-                    mountPath: /www/kafkafeeder-beta/conf/
+                    mountPath: /www/kafkafeeder/conf/
                     readOnly: true
 
               - name: cp-kafkafeeder
-                image: docker.dev/ondrej.sejvl/cp-if-not-exists-and-sleep
+                image: docker.io/sejvlond/cp-if-not-exists-and-sleep
                 args:
                   - "/src/kafkafeeder.yaml"
                   - "/dst/kafkafeeder.yaml"
@@ -59,7 +59,7 @@ spec:
                     mountPath: /dst/
 
               - name: cp-kafkafeeder-kafkafeeder
-                image: docker.dev/ondrej.sejvl/cp-if-not-exists-and-sleep
+                image: docker.io/sejvlond/cp-if-not-exists-and-sleep
                 args:
                   - "/src/kafkafeeder.yaml"
                   - "/dst/kafkafeeder.yaml"

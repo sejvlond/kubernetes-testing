@@ -6,11 +6,11 @@ topics:
         topic: tarsier-kafkafeeder-dbg
 
         # (mandatory) type of log
-        type: datalog
+        type: kafkalog
 
         # (mandatory) name of Kafka broker group. This name must be present in
         # "kafka_brokers" section of global.yaml
-        broker: kafka_dev
+        broker: kafka
 
         # (optional) retention length, older files which were read will be
         # deleted. Can have an optional postfix. If number has no postfix,
