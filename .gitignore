@@ -1,3 +1,4 @@
 *.swp
 *.swo
 /src/tarsier/secret-*
+/src/python-ultimate-server/secret-*

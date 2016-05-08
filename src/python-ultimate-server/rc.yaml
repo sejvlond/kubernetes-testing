@@ -19,3 +19,13 @@ spec:
                 #imagePullPolicy: Always
                 ports:
                   - containerPort: 6789
+
+                volumeMounts:
+                  - name: server-conf
+                    mountPath: /www/ultimate-server/conf
+                    readOnly: true
+
+            volumes:
+              - name: server-conf
+                secret:
+                    secretName: python-ultimate-server-conf
