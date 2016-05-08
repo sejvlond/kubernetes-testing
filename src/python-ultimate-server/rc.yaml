@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+    name: python-ultimate-server
+spec:
+    replicas: 1
+    selector:
+        app: python-ultimate-server
+    template:
+        metadata:
+            name: python-ultimate-server
+            labels:
+                app: python-ultimate-server
+        spec:
+            containers:
+
+              - name: python-ultimate-server
+                image: docker.io/sejvlond/python-ultimate-server
+                #imagePullPolicy: Always
+                ports:
+                  - containerPort: 6789

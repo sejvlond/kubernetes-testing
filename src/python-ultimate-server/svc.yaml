@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: python-ultimate-server
+spec:
+    selector:
+        app: python-ultimate-server
+    ports:
+      - port: 6789
