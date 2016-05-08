@@ -19,3 +19,6 @@ spec:
                 #imagePullPolicy: Always
                 ports:
                   - containerPort: 9876
+                env:
+                  - name: GOMAXPROCS
+                    value: "1"
